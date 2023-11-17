@@ -3,8 +3,8 @@ import { ListarProductoComponent } from './components/listar-producto/listar-pro
 import { CrearProductoComponent } from './components/crear-producto/crear-producto.component';
 
 export const routes: Routes = [
-    { path: '', component: ListarProductoComponent },
-    { path: 'crear_producto', component: CrearProductoComponent },
-    { path: 'editar_producto/:id', component: CrearProductoComponent },
+    { path: '', component: ListarProductoComponent, title: 'Lista Productos' },
+    { path: 'crear_producto', component: CrearProductoComponent, title: 'Crear Producto' },
+    { path: 'editar_producto/:id', component: CrearProductoComponent, title: 'Editar Producto' },
     { path: '**', redirectTo: '', pathMatch: 'full'}
 ];
