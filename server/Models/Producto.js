@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const productoSchema = mongoose.Schema({
-    producto: {
+    nombre: {
         type: String,
         required: true
     },
