@@ -10,6 +10,16 @@ exports.crearProducto = async (req, res) => {
 
     } catch (error) {
         console.log(error);
-        res.status(500).send('Hubo un error');
+        res.status(500).send('Hubo un error al registrar el producto');
+    }
+}
+
+exports.obtenerProductos = async (req, res) => {
+    try {
+        const productos = await Producto.find();
+        res.json(productos);
+    } catch (error) {
+        console.log(error);
+        res.status(500).send('Hubo un error al obetener los productos');
     }
 }
