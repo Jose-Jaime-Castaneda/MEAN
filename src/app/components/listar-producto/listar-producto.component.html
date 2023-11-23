@@ -5,7 +5,7 @@
         <div class="card-body text-center">
           <span class="titulo">LISTADO DE PRODUCTOS</span>
           <button class="btn btn-success float-end" routerLink="/crear_producto">Nuevo</button>
-          <table class="table table-striped mt-4">
+          <table *ngIf="productos.length > 0" class="table table-striped mt-4">
             <thead>
               <tr>
                 <th scope="col">Producto</th>
@@ -15,28 +15,10 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>Prod</td>
-                <td>Cat</td>
-                <td>Pre</td>
-                <td>
-                  <i class="fas fa-solid fa-pen-to-square text-primary"></i>
-                  <i class="fas fa-solid fa-trash text-danger"></i>
-                </td>
-              </tr>
-              <tr>
-                <td>Prod</td>
-                <td>Cat</td>
-                <td>Pre</td>
-                <td>
-                  <i class="fas fa-solid fa-pen-to-square text-primary"></i>
-                  <i class="fas fa-solid fa-trash text-danger"></i>
-                </td>
-              </tr>
-              <tr>
-                <td>Prod</td>
-                <td>Cat</td>
-                <td>Pre</td>
+              <tr *ngFor="let producto of productos">
+                <td>{{ producto.nombre }}</td>
+                <td>{{ producto.categoria }}</td>
+                <td>{{ producto.precio }}</td>
                 <td>
                   <i class="fas fa-solid fa-pen-to-square text-primary"></i>
                   <i class="fas fa-solid fa-trash text-danger"></i>
@@ -44,6 +26,8 @@
               </tr>
             </tbody>
           </table>
+          <h5 *ngIf="productos.length == 0" style="text-align: start; margin-top: 10px;">No hay productos para mostrar
+          </h5>
         </div>
       </div>
     </div>
