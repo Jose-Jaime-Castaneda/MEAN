@@ -24,10 +24,18 @@ export class ListarProductoComponent {
 
   obtenerProductos() {
     this.productoService.getProductos().subscribe(data => {
-      console.log(data);
+      //console.log(data);
       this.productos = data;
     }, error => {
       console.log(error);
+    })
+  }
+
+  eliminarProducto(id: any) {
+    this.productoService.delProducto(id).subscribe(data => {
+      console.log('Producto eliminado correctamente');
+    }, error => {
+      console.log(error + ' Hubo un error al eliminar el producto');
     })
   }
 }

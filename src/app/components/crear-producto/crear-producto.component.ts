@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterLink, Router } from '@angular/router';
 import { ReactiveFormsModule, FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Producto } from '../../models/modelo';
+import { ProductoService } from '../../services/producto.service';
 
 @Component({
   selector: 'app-crear-producto',
@@ -14,7 +15,7 @@ import { Producto } from '../../models/modelo';
 export class CrearProductoComponent {
   productoForm: FormGroup;
 
-  constructor(private fb: FormBuilder, private router: Router) {
+  constructor(private fb: FormBuilder, private router: Router, private productoService: ProductoService) {
     this.productoForm = this.fb.group({
       producto: ['', Validators.required],
       categoria: ['', Validators.required],
@@ -30,6 +31,11 @@ export class CrearProductoComponent {
       precio: this.productoForm.get('precio')?.value,
     }
     //console.log(PRODUCTO);
-    this.router.navigate(['/']);
+    this.productoService.crearProducto(PRODUCTO).subscribe(data => {
+      this.router.navigate(['/']);
+    }, erros => {
+      console.log(erros);
+      this.productoForm.reset();
+    });
   }
 }

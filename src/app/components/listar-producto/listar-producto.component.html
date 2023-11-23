@@ -21,7 +21,7 @@
                 <td>{{ producto.precio }}</td>
                 <td>
                   <i class="fas fa-solid fa-pen-to-square text-primary"></i>
-                  <i class="fas fa-solid fa-trash text-danger"></i>
+                  <i (click)="eliminarProducto(producto._id)" class="fas fa-solid fa-trash text-danger"></i>
                 </td>
               </tr>
             </tbody>
