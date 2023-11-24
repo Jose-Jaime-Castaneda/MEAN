@@ -1,4 +1,3 @@
-const { send } = require("process");
 const Producto = require("../Models/Producto");
 
 exports.crearProducto = async (req, res) => {
